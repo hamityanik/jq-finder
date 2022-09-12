@@ -1,0 +1,23 @@
+{
+  "name": "jq-finder",
+  "version": "1.0.0",
+  "description": "Server-side Directory Browser Plugin for jQuery",
+  "author": "M. Hamit Yanik <hamityanik@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "5.15",
+    "bootstrap": "4.6",
+    "jquery": "^3.6.1",
+    "jquery.easing": "^1.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2"
+  }
+}

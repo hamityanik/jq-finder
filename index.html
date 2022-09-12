@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jqFinder</title>
+
+    <link rel="icon" href="data:,">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+
+    <link rel="stylesheet" href="dist/jquery.jq-finder.min.css">
+
+    <style>
+        body {
+            padding-bottom: 400px;
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center mt-3 mb-5">
+            <h1>jqFinder</h1>
+            <div>A jQuery plugin for server-side directory browsing</div>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="mb-3">
+                    <h3>Examples</h3>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="finder1">1. Basic</label>
+                    <input id="finder1" type="text" class="form-control" placeholder="">
+                    <small class="form-text text-muted">Simple jqFinder activated by input-box focus.</small>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="finder2">2. With browse button</label>
+                    <div class="input-group">
+                        <input id="finder2" type="text" class="form-control" placeholder="">
+                        <div class="input-group-append">
+                            <button id="finder2-browse" class="btn btn-primary" type="button">Browse</button>
+                        </div>
+                    </div>
+                    <small class="form-text text-muted">Browse button activated jqFinder.</small>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="finder3">3. Colorized files</label>
+                    <div class="input-group">
+                        <input id="finder3" type="text" class="form-control" placeholder="">
+                    </div>
+                    <small class="form-text text-muted">Files will be colorized automatically based on the extension name.</small>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="finder4">4. Custom size</label>
+                    <div class="input-group">
+                        <input id="finder4" type="text" class="form-control" placeholder="">
+                    </div>
+                    <small class="form-text text-muted">Fixed size jqFinder with a content window size of 500x200px.</small>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="finder5">5. Dynamic height</label>
+                    <div class="input-group">
+                        <input id="finder5" type="text" class="form-control" placeholder="">
+                    </div>
+                    <small class="form-text text-muted">Dynamic content window between 250px to 500px minimum and maximum height.</small>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="finder6">6. With initial path</label>
+                    <div class="input-group">
+                        <input id="finder6" type="text" value="" class="form-control" placeholder="">
+                    </div>
+                    <small class="form-text text-muted">jqFinder instance with an initial path of "/root_dir".</small>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="finder7">7. Read-only input-box</label>
+                    <div class="input-group">
+                        <input id="finder7" type="text" class="form-control" placeholder="">
+                    </div>
+                    <small class="form-text text-muted">Browse button activated jqFinder.</small>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="finder8">8. Extensions only</label>
+                    <div class="input-group">
+                        <input id="finder8" type="text" class="form-control" placeholder="">
+                    </div>
+                    <small class="form-text text-muted">Only the files that have the specified extensions can be selectable.</small>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="finder9">9. Directory select</label>
+                    <div class="input-group">
+                        <input id="finder9" type="text" class="form-control" placeholder="">
+                    </div>
+                    <small class="form-text text-muted">Directories can be selected also.</small>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="finder10">10. Query string</label>
+                    <div class="input-group">
+                        <input id="finder10" type="text" class="form-control" placeholder="">
+                    </div>
+                    <small class="form-text text-muted">A custom query string will be appended to end of the path.</small>
+                </div>
+
+                <div class="form-group mb-5">
+                    <label for="finder11">11. Selected file</label>
+                    <div class="input-group">
+                        <input id="finder11" type="text" value="root_dir/foo/bar.json" class="form-control" placeholder="">
+                    </div>
+                    <small class="form-text text-muted">jqFinder will be initialized based on the selected file path.</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jquery.easing/jquery.easing.min.js"></script>
+
+
+    <script src="dist/jquery.jq-finder.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#finder1").jqFinder({
+                connector: "connector.php",
+                //placeholder: "Choose a file",
+                //popoverTitle: "Browse Directory",
+            });
+
+            $("#finder2").jqFinder({
+                connector: "connector.php",
+                browseBtn: "#finder2-browse",
+            });
+
+            $("#finder3").jqFinder({
+                connector: "connector.php",
+                colorizeByExtension: true,
+                easing: "easeOutQuart",
+            });
+
+            $("#finder4").jqFinder({
+                connector: "connector.php",
+                colorizeByExtension: true,
+                contentWidth: 500,
+                contentHeight: 200,
+            });
+
+            $("#finder5").jqFinder({
+                connector: "connector.php",
+                colorizeByExtension: true,
+                contentHeight: null,
+                contentMinHeight: 250,
+                contentMaxHeight: 500,
+            });
+
+            $("#finder6").jqFinder({
+                connector: "connector.php",
+                colorizeByExtension: true,
+                leadingSlash: true,
+                initialPath: "root_dir",
+            });
+
+            $("#finder7").jqFinder({
+                connector: "connector.php",
+                colorizeByExtension: true,
+                readOnly: true,
+            });
+
+            $("#finder8").jqFinder({
+                connector: "connector.php",
+                colorizeByExtension: true,
+                initialPath: "images",
+                extensionsOnly: ['.jpg', '.png'],
+                placeholder: "Image file",
+                popoverTitle: "Choose a .jpg or .png file",
+            });
+
+            $("#finder9").jqFinder({
+                connector: "connector.php",
+                allowFileSelectOnly: false,
+                leadingSlash: true,
+                directoryTrailingSlash: true,
+            }).on('jq-finder-select', function (e, item) {
+                console.log("Selected item type : " + item.type);
+                console.log("Selected item path : " + item.path);
+                console.log("Input-box value    : " + $(this).val());
+            });
+
+            $("#finder10").jqFinder({
+                connector: "connector.php",
+                colorizeByExtension: true,
+                allowFileSelectOnly: false,
+                leadingSlash: true,
+                directoryTrailingSlash: true,
+                queryString: {foo: "bar"},
+            });
+
+            $("#finder11").jqFinder({
+                connector: "connector.php",
+            });
+        });
+    </script>
+</body>
+</html>

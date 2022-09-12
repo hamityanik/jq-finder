@@ -1,0 +1,6 @@
+{
+    "require": {
+        "symfony/finder": "^5.4",
+        "joomla/input": "^2.0"
+    }
+}
