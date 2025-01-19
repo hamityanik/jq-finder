@@ -388,6 +388,8 @@
         nextDir: function (directory) {
             const _this = this;
 
+            directory = directory.toString();
+
             this.params.preventClicks = true;
 
             if (_this.currentPane) {
